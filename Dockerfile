@@ -11,4 +11,4 @@ ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64
 EXPOSE 2181 2888 3888
 VOLUME /var/lib/zookeeper
 
-CMD ["/zookeeper-3.4.6/bin/zkServer.sh" "start-foreground"]
+CMD ["/zookeeper-3.4.6/bin/zkServer.sh", "start-foreground"]
