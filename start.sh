@@ -14,9 +14,12 @@ DATA_DIR=/var/lib/zookeeper
 OIFS=$IFS
 IFS=','
 ID=1
-for server in $ZK_SERVERS
+for SERVER in $ZK_SERVERS
 do
-  echo "server.$ID=$server:2888:3888" >> $ZOOKEEPER_DIR/conf/zoo.cfg
+  if [ $ID -eq $ZK_SERVER_NUMBER ]; then
+     SERVER="0.0.0.0"
+  fi
+  echo "server.$ID=$SERVER:2888:3888" >> $ZOOKEEPER_DIR/conf/zoo.cfg
   ID=$(expr $ID + 1)
 done
 IFS=$OIFS
